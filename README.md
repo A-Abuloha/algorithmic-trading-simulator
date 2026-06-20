@@ -23,12 +23,15 @@ Instead of putting all my code into one giant file, I broke this simulator down 
 Make sure you have Python installed, then install the required data libraries via your terminal:
 ```bash
 pip install pandas matplotlib
-
+'''
 ## 🧠 What I Learned & Real-World Realities
 
 Building this simulator was a huge learning experience, especially when it came to debugging and understanding how real financial markets differ from a code sandbox:
 
-- **The Windows Path Trap:** I hit a frustrating bug where my file wouldn't load because Windows backslashes (`\`) were being misread by Python as escape characters (like turning `\vix` into a vertical tab glitch). I learned how to fix this using raw strings (`r""`) and forward slashes (`/`).
-- **Data Chronology Matters:** When I first loaded the historical data, the simulation was running backward because financial CSVs usually list the newest dates at the top. I had to learn how to sort the DataFrame chronologically and use `.reset_index(drop=True)` so my simulation loop stepped forward through time correctly.
-- **The Infinite Liquidity Assumption:** While it's awesome to see my chart compound into huge numbers, this simulation assumes "infinite liquidity"—meaning it assumes you can instantly buy billions of dollars of an asset at the exact listed price without moving the market. In the real world, massive order sizes cause slippage and alter market prices.
-- **Index vs. Tradable Asset:** This backtester runs against the raw VIX volatility index. In real life, you can't buy direct shares of the VIX itself; you have to trade options or futures, which introduce extra holding costs (like roll yield and decay) that a basic simulation doesn't capture.
+    The Windows Path Trap: I hit a frustrating bug where my file wouldn't load because Windows backslashes (\) were being misread by Python as escape characters (like turning \vix into a vertical tab glitch). I learned how to fix this using raw strings (r"") and forward slashes (/).
+
+    Data Chronology Matters: When I first loaded the historical data, the simulation was running backward because financial CSVs usually list the newest dates at the top. I had to learn how to sort the DataFrame chronologically and use .reset_index(drop=True) so my simulation loop stepped forward through time correctly.
+
+    The Infinite Liquidity Assumption: While it's awesome to see my chart compound into huge numbers, this simulation assumes "infinite liquidity"—meaning it assumes you can instantly buy billions of dollars of an asset at the exact listed price without moving the market. In the real world, massive order sizes cause slippage and alter market prices.
+
+    Index vs. Tradable Asset: This backtester runs against the raw VIX volatility index. In real life, you can't buy direct shares of the VIX itself; you have to trade options or futures, which introduce extra holding costs (like roll yield and decay) that a basic simulation doesn't capture.
