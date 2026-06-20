@@ -23,7 +23,8 @@ Instead of putting all my code into one giant file, I broke this simulator down 
 Make sure you have Python installed, then install the required data libraries via your terminal:
 ```bash
 pip install pandas matplotlib
-'''
+```
+
 ## 🧠 What I Learned & Real-World Realities
 
 Building this simulator was a huge learning experience, especially when it came to debugging and understanding how real financial markets differ from a code sandbox:
